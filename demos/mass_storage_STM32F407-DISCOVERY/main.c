@@ -28,8 +28,8 @@ int main(void) {
 
   palSetPadMode(GPIOD, GPIOD_LED4, PAL_MODE_ALTERNATE(2));  /* Green.   */
 
-//  sdcStart(&SDCD1, NULL);
-//  sdcConnect(&SDCD1);
+  sdcStart(&SDCD1, NULL);
+  sdcConnect(&SDCD1);
 
   //palSetPad(GPIOC, GPIOC_LED);
 
