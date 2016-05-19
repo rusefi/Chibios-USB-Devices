@@ -63,6 +63,8 @@ endif
 # Define project name here
 PROJECT = ch
 
+USBD_LIB = ../..
+
 # Imported source files and paths
 CHIBIOS = ../chibios
 include $(CHIBIOS)/boards/ST_STM32F4_DISCOVERY/board.mk
@@ -85,6 +87,7 @@ CSRC = $(PORTSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
        $(CHIBIOS)/os/various/devices_lib/accel/lis302dl.c \
+       $(USBD_LIB)/mass_storage/usb_msd.c \
        $(CHIBIOS)/os/various/chprintf.c \
        main.c
 
@@ -117,7 +120,7 @@ ASMSRC = $(PORTASM)
 
 INCDIR = $(PORTINC) $(KERNINC) $(TESTINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) \
-         $(CHIBIOS)/os/various/devices_lib/accel \
+         $(CHIBIOS)/os/various/devices_lib/accel $(USBD_LIB)/mass_storage\
          $(CHIBIOS)/os/various
 
 #
