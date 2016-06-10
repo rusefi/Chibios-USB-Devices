@@ -25,11 +25,6 @@ int main(void) {
   chSysInit();
 
 
-  sdcStart(&SDCD1, NULL);
-  sdcConnect(&SDCD1);
-
-  palSetPad(GPIOD, GPIOD_LED3); // orange - constant ON
-
 // SD_D0
   palSetPadMode(GPIOC, 8, PAL_MODE_ALTERNATE(12));
 // SD_D1
@@ -43,6 +38,11 @@ int main(void) {
 // SD_CMD
   palSetPadMode(GPIOD, 2, PAL_MODE_ALTERNATE(12));
 
+
+  sdcStart(&SDCD1, NULL);
+  sdcConnect(&SDCD1);
+
+  palSetPad(GPIOD, GPIOD_LED3); // orange - constant ON
   USBMassStorageDriver UMSD1;
   msdInit(&USBD1, &SDCD1, &UMSD1);
 
